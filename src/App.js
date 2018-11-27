@@ -1,28 +1,69 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='App'>
+        <Tab/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+class Head extends Component {
+  render () {
+    const head = ['заголовок 1', 'заголовок 2', 'заголовок 3']
+    return (
+      <thead>
+        <th>{head[0]}</th>
+        <th>{head[1]}</th>
+        <th>{head[2]}</th>
+      </thead>
+    )
+  }
+}
+
+class Body extends Component {
+  render () {
+    const text = 'текст'
+    return (
+      <tbody>
+        <tr>
+          <td>{text}</td>
+          <td>{text}</td>
+          <td>{text}</td>
+        </tr>
+      </tbody>
+    )
+  }
+}
+
+class Footer extends Component {
+  render () {
+    const text = '*'.repeat(33)
+    return (
+      <tfoot>
+        <tr>
+          <td>{text}</td>
+          <td>{text}</td>
+          <td>{text}</td>
+        </tr>
+      </tfoot>
+    )
+  }
+}
+
+class Tab extends Component {
+  render () {
+    return (
+      <table rules='all' frame='border'>
+        <Head/>
+        <Body/>
+        <Footer/>
+      </table>
+    )
+  }
+}
+
+export default App
