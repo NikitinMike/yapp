@@ -7,22 +7,17 @@ function WelcomeF(props) {
 }
 class WelcomeC extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1> Hello, {this.props.name} </h1>;
   }
 }
-
 class App extends Component {
   render () {
     return (
       <div className='App'>
         <WelcomeC name="MikeN"/>
-        <Tab table={[
-          ['Вася',100,110],
-          ['Петя',100,120],
-          ['Жора',100,130],
-          ['Коля',100,140],
-          ['Лёша',100,150]
-        ]} />
+        <Tab header= {['Мия','Вес','Рост']}
+            data={[['Вася',100,110],['Петя',100,120],['Жора',100,130],['Коля',100,140],['Лёша',100,150]]} 
+        />
       </div>
     )
   }
