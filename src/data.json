@@ -1,0 +1,7 @@
+[
+    {"key":1,"name":"Вася","weigth":11.1,"tail":101.55},
+    {"key":2,"name":"Петя","weigth":12.2,"tail":102.64},
+    {"key":3,"name":"Жора","weigth":13.3,"tail":103.73},
+    {"key":4,"name":"Коля","weigth":14.4,"tail":104.82},
+    {"key":5,"name":"Лёша","weigth":15.5,"tail":105.91}
+]
