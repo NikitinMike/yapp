@@ -26,7 +26,7 @@ class App extends Component {
       <div className='App'>
         <WelcomeF name="Kitty"/>
         <Table data = {data}
-          header = {["№","Счёт","Имя","Пользователь"]}
+          header = {["[№]","= Счёт =","= Имя =","= Пользователь ="]}
           total = {{
             entityId: '*'.repeat(0), 
             number: '*'.repeat(1),

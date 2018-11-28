@@ -16,5 +16,5 @@ class Row extends Component {
         )
     }
 }
-        
+
 export default Row
