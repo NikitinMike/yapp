@@ -25,10 +25,19 @@ thead {
   background-color: black;
   color: aquamarine;
   font-size: 150%;
+  font-weight: bold;
 }
 
 tfoot {
   text-align: center ;
   background-color: gray;
   color: aquamarine;
+}
+
+caption {
+  font-weight: bolder;
+  text-align: center ;
+  background-color: black;
+  color: aqua ;
+  font-size: 200%;
 }

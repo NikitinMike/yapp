@@ -3,17 +3,14 @@ import React, { Component } from 'react'
 // function Row(props) {
 class Row extends Component {
     render () {
-        const data = this.props.data;
-        console.log(data);
-        const row =
+        const row = this.props.row
+        console.log(row)
+        return (
             <tr>
-                <td>{data.entityId}</td>
-                <td>{data.number}</td>
-                <td>{data.displayName}</td>
-                <td>{data.userName}</td>
+                {row.map(item => <td key={item}>{item}</td>)}
             </tr>
-        return (row)
+        )
     }
-}
+}   
 
 export default Row
