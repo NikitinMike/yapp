@@ -8,14 +8,54 @@ import licensesJSON from './licenses.json';
 const accounts = accountsJSON.data;
 const licenses = licensesJSON.data
 
-function WelcomeF(props) {return <h1>Hello, {props.name}!</h1>;}
+// function WelcomeF(props) {return <h1>Hello, {props.name}!</h1>;}
+
 class WelcomeC extends React.Component {
   render() {return <h1> Hello, {this.props.name} !</h1>;}
 }
 
 class App extends Component {
-render () {
-  return (
+
+  componentDidMount(){
+    // https://habr.com/post/252941/
+
+    fetch('https://licensesvc.trusted.ru/license/jwt/accounts', {mode: 'cors'})
+      .then(function(response) {
+        console.log("ACCOUNTS")
+        console.log(response.headers.get('Content-Type'));  
+        console.log(response.headers.get('Date'));
+        console.log(response.status);  
+        console.log(response.statusText);  
+        console.log(response.type);  
+        console.log(response.url);  
+    });
+
+    console.log("LICENSES")
+    fetch('https://licensesvc.trusted.ru/license/jwt/licenses', {mode: 'cors'})
+      .then(function(response) { return response.text(); })  
+      .then(function(text) { console.log('Request successful', text); })  
+      .catch(function(error) { console.log('Request failed', error) });
+
+    /*
+      .then(
+        function(response) {
+          console.log("FETCH!")
+          if (response.status !== 200) {  
+            console.log('Looks like there was a problem. Status Code: ' + response.status);  
+            return;  
+          }
+          // Examine the text in the response  
+          console.log(response.json)
+          response.json().then(function(data) { console.log(data); });  
+        }  
+      )
+      .catch(function(err) { console.log('Fetch Error :-S', err);});
+      */
+
+  }
+
+  render () {
+    return (
       <div className='App'>
         <WelcomeC name="Kitty"/>
         <AccountsTable data = {accounts} title="Счета"/>
