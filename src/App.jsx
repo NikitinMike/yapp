@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Table from './Table';
 import './App.css'
-import children from './data.json';
+// import children from './data.json';
 import message from './data2.json';
 
 const data=message.data;
@@ -25,7 +25,15 @@ class App extends Component {
     return (
       <div className='App'>
         <WelcomeF name="Kitty"/>
-        <Table header= {["№","счёт","имя","пользователь"]} data={data}/>
+        <Table data = {data}
+          header = {["№","Счёт","Имя","Пользователь"]}
+          total = {{
+            entityId: '*'.repeat(0), 
+            number: '*'.repeat(1),
+            displayName: '*'.repeat(2), 
+            userName: '*'.repeat(3), 
+          }}
+        />
       </div>
     )
   }
