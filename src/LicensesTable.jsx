@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header';
 import Footer from './Footer';
 
-function LicenseRow(props) {
+function Row(props) {
   return (
     <tr>
       <td>{props.data.entityId}</td>
@@ -14,21 +14,15 @@ function LicenseRow(props) {
   )
 }
 
-function Body(props) {  
-  return (
-    <tbody>
-      {props.data.map(item => <LicenseRow key={item.entityId} data={item}/>)}
-    </tbody>
-  )
-}
-
 class LicensesTable extends Component {
   render () {
     return (
       <table rules='all' frame='border'>
         <caption>{this.props.title}</caption>
         <Header head={["[№]","= Счёт =","= Имя =","= Выпущено =","= Доступно ="]}/>
-        <Body data={this.props.data} />
+        <tbody>
+          {this.props.data.map(item => <Row key={item.entityId} data={item}/>)}
+        </tbody>
         <Footer foot={["","","","",""]}/>
       </table>
     )
