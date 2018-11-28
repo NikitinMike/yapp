@@ -19,12 +19,12 @@ const children2=[
   ['Лёша',100,105+91]
 ]
 */
-function WelcomeF(props) {return <h1>Hello, {props.name}!</h1>;}
+// function WelcomeF(props) {return <h1>Hello, {props.name}!</h1>;}
 class App extends Component {
   render () {
     return (
       <div className='App'>
-        <WelcomeF name="Kitty"/>
+        <WelcomeC name="Kitty"/>
         <Table data = {data}
           header = {["[№]","= Счёт =","= Имя =","= Пользователь ="]}
           total = {{

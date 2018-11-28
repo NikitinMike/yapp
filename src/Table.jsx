@@ -30,7 +30,7 @@ class Body extends Component {
     // console.log(table);
     return (
       <tbody>
-        {this.props.table.map(item => <Row key={item.entityId} row={item}/>)}
+        {this.props.table.map(item => <Row key={item.entityId} data={item}/>)}
       </tbody>
     )
   }
@@ -41,7 +41,7 @@ class Footer extends Component {
     const total = this.props.total
     return (
       <tfoot>
-        <Row key={0} row={total}/>
+        <Row key={0} data={total}/>
       </tfoot>
     )
   }
