@@ -1,36 +1,38 @@
-// import React, { Component } from 'react'
+import './App.css'
+// import * as React from "react";
+// import * as ReactDOM from "react-dom";
+import React, { Component } from 'react'
 import AccountsTable from './AccountsTable';
 import LicensesTable from './LicensesTable';
-import './App.css'
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-
-// import accountsJSON from './accounts.json';
-// import licensesJSON from './licenses.json';
+import accountsJSON from './accounts.json';
+import licensesJSON from './licenses.json';
 // import accountsJSON from 'https://licensesvc.trusted.ru/license/jwt/accounts';
 
-// var accounts = accountsJSON.data;
-// var licenses = licensesJSON.data;
-var accounts =[]
-var licenses =[]
+var accounts = accountsJSON.data;
+var licenses = licensesJSON.data;
+// var accounts =[]
+// var licenses =[]
+// this.state.accounts=accounts
+// this.state.licenses=licenses
+// this.state = {accounts:[]};
+// this.state = {licenses:[]};
 
 // function WelcomeF(props) {return <h1>Hello, {props.name}!</h1>;}
-
-interface AppState {
-}
-
-interface AppProps {
-}
-
+// interface AppState {}
+// interface AppProps {}
 class WelcomeC extends React.Component {
   render() {return <h1> Hello, {this.props.name} !</h1>;}
 }
 
-// class App extends React.Component {
-class App extends React.Component<AppProps, AppState> {
+class App extends React.Component {
+// class App extends React.Component<AppProps, AppState> {
 
+   accounts = accountsJSON.data;
+   licenses = licensesJSON.data;
+  
   constructor(props) {
     super(props)
+    this.state = {accounts:null,licenses:null};
   }
 
   componentDidMount() {
@@ -47,6 +49,8 @@ class App extends React.Component<AppProps, AppState> {
       .then(function(message) { 
         accounts = JSON.parse(message).data;
         console.log('ACCOUNTS:',accounts)
+        // accounts => this.setState({ accounts })
+        // this.state.accounts=accounts
       })
       .catch(function(error) { console.log('Request failed', error) });
 
@@ -55,6 +59,8 @@ class App extends React.Component<AppProps, AppState> {
       .then(function(text) { 
         licenses = JSON.parse(text).data;
         console.log('LICENSES:',licenses)
+        // licenses => this.setState({licenses})
+        // this.state.licenses=licenses
       })
       .catch(function(error) { console.log('Request failed', error) });
     /*
@@ -72,21 +78,18 @@ class App extends React.Component<AppProps, AppState> {
       )
       .catch(function(err) { console.log('Fetch Error :-S', err);});
       */
-  }
+    }
 
   render () {
     return (
       <div className='App'>
         <WelcomeC name="Kitty"/>
-        <div>{this.state.accounts}</div>
-        <AccountsTable data = {this.state.accounts} title="Счета"/>
-        <div>{this.state.licenses}</div>        
-        <LicensesTable data = {this.state.licenses} title="Лицензии"/>
+        <AccountsTable data = {accounts} title="Счета"/>
+        <LicensesTable data = {licenses} title="Лицензии"/>
       </div>
     )
   }
-  
 }
 
-// export default App
-ReactDOM.render(<App />, document.getElementById("container"));
+// ReactDOM.render(<App />, document.getElementById("container"));
+export default App
