@@ -32,35 +32,40 @@ class App extends React.Component {
   
   constructor(props) {
     super(props)
-    this.state = {accounts:null,licenses:null};
+    this.state = {accounts:[],licenses:[]};
   }
 
   componentDidMount() {
     // https://habr.com/post/252941/
     // console.log("ACCOUNTS")
+    this.setState({accounts: [] });
+    this.setState({licenses: [] });
     fetch('https://licensesvc.trusted.ru/license/jwt/accounts', {mode: 'cors'})
       .then(function(response) {
-      // console.log(response.headers.get('Content-Type'));  
-      // console.log(response.headers.get('Date'));
-      console.log(response.url,response.status+"/"+response.statusText);  
-      // console.log(response.type);  
-      // console.log(response.text());
-      return response.text(); })
-      .then(function(message) { 
-        accounts = JSON.parse(message).data;
+        // console.log(response.headers.get('Content-Type'));  
+        // console.log(response.headers.get('Date'));
+        console.log(response.url,response.status+"/"+response.statusText);  
+        // console.log(response.type);  
+        // console.log(response.text());
+        return response.text(); })
+      .then(message => { 
+        const accounts = JSON.parse(message).data;
         console.log('ACCOUNTS:',accounts)
         // accounts => this.setState({ accounts })
         // this.state.accounts=accounts
+        // accounts => 
+        this.setState({accounts});
       })
       .catch(function(error) { console.log('Request failed', error) });
 
     fetch('https://licensesvc.trusted.ru/license/jwt/licenses', {mode: 'cors'})
       .then(function(response) { return response.text(); })
-      .then(function(text) { 
+      .then(text => { 
         licenses = JSON.parse(text).data;
         console.log('LICENSES:',licenses)
         // licenses => this.setState({licenses})
         // this.state.licenses=licenses
+        this.setState({licenses});
       })
       .catch(function(error) { console.log('Request failed', error) });
     /*
@@ -81,11 +86,13 @@ class App extends React.Component {
     }
 
   render () {
+    // const {tst} = this.state;
+    console.log(this.state)
     return (
       <div className='App'>
         <WelcomeC name="Kitty"/>
-        <AccountsTable data = {accounts} title="Счета"/>
-        <LicensesTable data = {licenses} title="Лицензии"/>
+        <AccountsTable data = {this.state.accounts} title="Счета"/>
+        <LicensesTable data = {this.state.licenses} title="Лицензии"/>
       </div>
     )
   }
