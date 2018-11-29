@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AccountsTable from './AccountsTable';
 import LicensesTable from './LicensesTable';
-import './App.css'
+// import './App.css'
 import accountsJSON from './accounts.json';
 import licensesJSON from './licenses.json';
 
@@ -16,9 +16,8 @@ class WelcomeC extends React.Component {
 
 class App extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     // https://habr.com/post/252941/
-
     fetch('https://licensesvc.trusted.ru/license/jwt/accounts', {mode: 'cors'})
       .then(function(response) {
         console.log("ACCOUNTS")
