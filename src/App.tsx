@@ -1,4 +1,5 @@
-// import React, { Component } from 'react'
+
+import React, { Component } from 'react'
 import AccountsTable from './AccountsTable';
 import LicensesTable from './LicensesTable';
 import './App.css'
@@ -85,8 +86,8 @@ class App extends React.Component<AppProps, AppState> {
       </div>
     )
   }
-  
 }
 
 // export default App
+
 ReactDOM.render(<App />, document.getElementById("container"));
