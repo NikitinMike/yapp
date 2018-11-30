@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import AccountsTable from './AccountsTable';
 import LicensesTable from './LicensesTable';
 const siteUrl='https://licensesvc.trusted.ru/license/account/'
-function Welcome(props) {return <h1>Hello, {props.name}!</h1>;}
+function Welcome(props) {return <h1 hidden>Hello, {props.name}!</h1>;}
 
 class App extends React.Component {
   render () {
