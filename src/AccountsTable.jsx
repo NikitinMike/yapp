@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import TableComponent from './TableComponent';
-const head=["[№]","= Счёт =","= Имя =","= Пользователь ="]
-const foot=["","","",""]
+const head=["[№]","= Счёт =","= Имя =","= Пользователь ="," Доступно "," Выпущено "]
+const foot=["","","","","",""]
 
 function Row(props) {
   return (
@@ -12,6 +12,8 @@ function Row(props) {
       <td>{props.data.number}</td>
       <td>{props.data.displayName}</td>
       <td>{props.data.userName}</td>
+      <td>{props.data.amount}</td>
+      <td>{props.data.issued}</td>
     </tr>
   )
 }

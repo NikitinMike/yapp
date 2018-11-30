@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import TableComponent from './TableComponent';
-const head=["[№]","= Счёт =","= Имя =","= Выпущено =","= Доступно ="]
+const head=["[№]","= Счёт =","= Имя Пользователя =","= Токен =","= Доступно ="]
 const foot=["","","","",""]
 
 function Row(props) {
@@ -10,8 +10,8 @@ function Row(props) {
     <tr>
       <td>{props.data.entityId}</td>
       <td>{props.data.account.number}</td>
-      <td>{props.data.name}</td>
-      <td>{props.data.issued}</td>
+      <td>{props.data.account.displayName}</td>
+      <td>{props.data.hashJWT}</td>
       <td>{props.data.amount}</td>
     </tr>
   )
