@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import TableComponent from './TableComponent';
+const head=["[№]","= Счёт =","= Имя =","= Пользователь ="]
+const foot=["","","",""]
 
 function Row(props) {
   return (
@@ -19,11 +21,11 @@ class AccountsTable extends TableComponent {
     return (
       <table rules='all' frame='border' >
         <caption>{this.props.title}</caption>
-        <Header head={["[№]","= Счёт =","= Имя =","= Пользователь ="]}/>
+        <Header head={head}/>
         <tbody>
           {this.state.data.map(item => <Row key={item.entityId} data={item}/>)}
         </tbody>
-        <Footer foot={["","","",""]}/>
+        <Footer foot={foot}/>
       </table>
     )
   }
