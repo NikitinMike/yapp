@@ -11,29 +11,12 @@ class WelcomeC extends React.Component {
 }
 
 class App extends React.Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {accounts:[],licenses:[]};
-  }
-
-  componentDidMount() {
-    fetch('https://licensesvc.trusted.ru/license/jwt/accounts', {mode:'cors'})
-      .then(response => { return response.text(); })
-      .then(message => { const accounts = JSON.parse(message).data; this.setState({accounts});})
-      .catch(function(error) { console.log('Request failed', error) });
-    fetch('https://licensesvc.trusted.ru/license/jwt/licenses', {mode:'cors'})
-      .then(response => { return response.text(); })
-      .then(text => { const licenses = JSON.parse(text).data; this.setState({licenses});})
-      .catch(function(error) { console.log('Request failed', error) });
-  }
-
   render () {
     return (
       <div className='App'>
         <WelcomeC name="Kitty"/>
-        <AccountsTable data = {this.state.accounts} title="Счета"/>
-        <LicensesTable data = {this.state.licenses} title="Лицензии"/>
+        <AccountsTable url = {'https://licensesvc.trusted.ru/license/jwt/accounts'} title="Счета"/>
+        <LicensesTable url = {'https://licensesvc.trusted.ru/license/jwt/licenses'} title="Лицензии"/>
       </div>
     )
   }

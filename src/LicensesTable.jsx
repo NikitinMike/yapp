@@ -13,15 +13,26 @@ function Row(props) {
     </tr>
   )
 }
-
 class LicensesTable extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {data:[]};
+  }
+  componentDidMount() {
+    fetch(this.props.url, {mode:'cors'})
+      .then(response => { return response.text(); })
+      .then(msg => { const data = JSON.parse(msg).data; this.setState({data});})
+      .catch(function(error) { console.log('Failed', error) });
+  }
+
   render () {
     return (
       <table rules='all' frame='border'>
         <caption>{this.props.title}</caption>
         <Header head={["[№]","= Счёт =","= Имя =","= Выпущено =","= Доступно ="]}/>
         <tbody>
-          {this.props.data.map(item => <Row key={item.entityId} data={item}/>)}
+          {this.state.data.map(item => <Row key={item.entityId} data={item}/>)}
         </tbody>
         <Footer foot={["","","","",""]}/>
       </table>
