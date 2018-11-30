@@ -12,7 +12,6 @@ function Row(props) {
     </tr>
   )
 }
-
 class AccountsTable extends Component {
 
   constructor(props) {
@@ -21,7 +20,7 @@ class AccountsTable extends Component {
   }
 
   componentDidMount() {
-    fetch(this.props.url, {mode:'cors'})
+    fetch(this.props.getDataFrom, {mode:'cors'})
       .then(response => { return response.text(); })
       .then(msg => { const data = JSON.parse(msg).data; this.setState({data});})
       .catch(function(error) { console.log('Failed', error) });

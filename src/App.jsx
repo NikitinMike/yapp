@@ -12,11 +12,12 @@ class WelcomeC extends React.Component {
 
 class App extends React.Component {
   render () {
+    const siteUrl='https://licensesvc.trusted.ru/license/jwt/'
     return (
       <div className='App'>
         <WelcomeC name="Kitty"/>
-        <AccountsTable url = {'https://licensesvc.trusted.ru/license/jwt/accounts'} title="Счета"/>
-        <LicensesTable url = {'https://licensesvc.trusted.ru/license/jwt/licenses'} title="Лицензии"/>
+        <AccountsTable getDataFrom={siteUrl+'accounts'} title="Счета"/>
+        <LicensesTable getDataFrom={siteUrl+'licenses'} title="Лицензии"/>
       </div>
     )
   }
