@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header';
 import Footer from './Footer';
+import TableComponent from './TableComponent';
 
 function Row(props) {
   return (
@@ -12,20 +13,8 @@ function Row(props) {
     </tr>
   )
 }
-class AccountsTable extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {data:[]};
-  }
-
-  componentDidMount() {
-    fetch(this.props.getDataFrom, {mode:'cors'})
-      .then(response => { return response.text(); })
-      .then(msg => { const data = JSON.parse(msg).data; this.setState({data});})
-      .catch(function(error) { console.log('Failed', error) });
-  }
-  
+class AccountsTable extends TableComponent {
   render () {
     return (
       <table rules='all' frame='border' >
