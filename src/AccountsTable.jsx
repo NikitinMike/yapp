@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import TableComponent from './TableComponent';
@@ -7,16 +7,23 @@ const foot=["","","","","",""]
 
 function handleClick(e) {
   e.preventDefault();
-  console.log('Account:'+e.target.id);
+  // console.log('Account:'+e.target.id);
   // console.log(e.target.parentElement)
-  if(e.target.tagName=='BUTTON') e.target.parentElement.parentElement.remove()  
+  if(e.target.tagName==='BUTTON') e.target.parentElement.parentElement.remove()
+}
+
+function mouse(e) {
+  e.preventDefault();
+  if(e.target.parentElement.id!=0)
+    e.target.parentElement.style.backgroundColor = (e.type=='mouseover') ? 'red':'';
+  // console.log(e);
 }
 
 function Row(props) {
   const id=props.data.entityId
   return (
-    <tr id={id}>
-      <td><button id={id}>{id}</button></td>
+    <tr id={id} onMouseOver={mouse} onMouseOut={mouse}>
+      <td><button id={id}  onClick={handleClick}>{id}</button></td>
       <td>{props.data.number}</td>
       <td>{props.data.displayName}</td>
       <td>{props.data.userName}</td>
