@@ -45,7 +45,7 @@ class LicensesTable extends TableComponent {
           </tbody>
           <Footer foot={foot}/>
         </table>
-      </form>      
+      </form>
     )
   }
 }
