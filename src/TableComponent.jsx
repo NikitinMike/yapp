@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class TableComponent extends Component {
+class TableComponent extends React.Component {
 
   constructor(props) {
     super(props)

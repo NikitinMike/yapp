@@ -14,8 +14,8 @@ function handleClick(e) {
 
 function mouse(e) {
   e.preventDefault();
-  if(e.target.parentElement.id!=0)
-    e.target.parentElement.style.backgroundColor = (e.type=='mouseover') ? 'red':'';
+  if(e.target.parentElement.id!==0)
+    e.target.parentElement.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
   // console.log(e);
 }
 
