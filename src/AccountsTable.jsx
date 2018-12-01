@@ -8,8 +8,8 @@ const foot=["","","","","",""]
 
 class Row extends BaseRow {
   render(){
-    const id = this.props.data.entityId
     const data = this.props.data
+    const id = data.entityId
     return (
       <tr id={id} onMouseOver={this.mouse} onMouseOut={this.mouse}>
         <td><button id={id}  onClick={this.handleClick}>{id}</button></td>
