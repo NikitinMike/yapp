@@ -8,16 +8,15 @@ const foot=["","","","","",""]
 function handleClick(e) {
   e.preventDefault();
   console.log('Account:'+e.target.id);
+  // console.log(e.target.parentElement)
+  if(e.target.tagName=='BUTTON') e.target.parentElement.parentElement.remove()  
 }
 
 function Row(props) {
+  const id=props.data.entityId
   return (
-    <tr>
-      <td>
-        <button id={props.data.entityId}>
-         {props.data.entityId}
-        </button>
-      </td>
+    <tr id={id}>
+      <td><button id={id}>{id}</button></td>
       <td>{props.data.number}</td>
       <td>{props.data.displayName}</td>
       <td>{props.data.userName}</td>

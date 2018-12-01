@@ -7,16 +7,17 @@ const foot=["","","","",""]
 
 function handleClick(e) {
   e.preventDefault();
-  console.log('License:'+e.target.id);
+  console.log('License:')
+  console.log(e.target.id); // .target.id
+  // console.log(e.target.parentElement)
+  if(e.target.tagName=='BUTTON') e.target.parentElement.parentElement.remove()
 }
+
 function Row(props) {
+  const id=props.data.entityId
   return (
-    <tr>
-      <td>
-        <button id={props.data.entityId}>
-         {props.data.entityId}
-        </button>
-      </td>
+    <tr id={id} onClick={handleClick}>
+      <td><button id={id}>{id}</button></td>
       <td>{props.data.account.number}</td>
       <td>{props.data.account.displayName}</td>
       <td>{props.data.hashJWT}</td>
@@ -24,10 +25,11 @@ function Row(props) {
     </tr>
   )
 }
+
 class LicensesTable extends TableComponent {
   render () {
     return (
-      <form  onClick={handleClick}>
+      <form>
         <table rules='all' frame='border'>
           <caption>{this.props.title}</caption>
           <Header head={head}/>
