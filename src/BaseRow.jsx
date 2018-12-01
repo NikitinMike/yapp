@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class BaseRow extends Component {
 
-    mouse = (e) => {
+    onMouse = (e) => {
         e.preventDefault();
         const parent=e.target.parentElement
         if(parent.id!==0)

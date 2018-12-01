@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header';
 import Footer from './Footer';
-import TableComponent from './TableComponent';
+import BaseTable from './BaseTable';
 import BaseRow from './BaseRow';
 
 const head=["[№]","= Счёт =","= Имя Пользователя =","= Токен =","= Доступно ="]
@@ -13,7 +13,7 @@ class Row extends BaseRow {
     const id = data.entityId
     // console.log(data)
     return (
-      <tr id={id}  onMouseOver={this.mouse} onMouseOut={this.mouse}>
+      <tr id={id}  onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <td><button id={id} onClick={this.handleClick}>{id}</button></td>
         <td>{data.account.number}</td>
         <td>{data.account.displayName}</td>
@@ -24,7 +24,7 @@ class Row extends BaseRow {
   }
 }
 
-class LicensesTable extends TableComponent {
+class LicensesTable extends BaseTable {
   render () {
     return (
       <form>

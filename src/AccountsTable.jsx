@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header';
 import Footer from './Footer';
-import TableComponent from './TableComponent';
+import BaseTable from './BaseTable';
 import BaseRow from './BaseRow';
 const head=["[№]","= Счёт =","= Имя =","= Пользователь ="," Доступно "," Выпущено "]
 const foot=["","","","","",""]
@@ -11,7 +11,7 @@ class Row extends BaseRow {
     const data = this.props.data
     const id = data.entityId
     return (
-      <tr id={id} onMouseOver={this.mouse} onMouseOut={this.mouse}>
+      <tr id={id} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <td><button id={id}  onClick={this.handleClick}>{id}</button></td>
         <td>{data.number}</td>
         <td>{data.displayName}</td>
@@ -23,7 +23,7 @@ class Row extends BaseRow {
   }
 }
 
-class AccountsTable extends TableComponent {
+class AccountsTable extends BaseTable {
   render () {
     return (
       <form>
