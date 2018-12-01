@@ -2,41 +2,31 @@ import React from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import TableComponent from './TableComponent';
+import BaseRow from './BaseRow';
 const head=["[№]","= Счёт =","= Имя =","= Пользователь ="," Доступно "," Выпущено "]
 const foot=["","","","","",""]
 
-function handleClick(e) {
-  e.preventDefault();
-  // console.log('Account:'+e.target.id);
-  // console.log(e.target.parentElement)
-  if(e.target.tagName==='BUTTON') e.target.parentElement.parentElement.remove()
-}
-
-function mouse(e) {
-  e.preventDefault();
-  if(e.target.parentElement.id!==0)
-    e.target.parentElement.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
-  // console.log(e);
-}
-
-function Row(props) {
-  const id=props.data.entityId
-  return (
-    <tr id={id} onMouseOver={mouse} onMouseOut={mouse}>
-      <td><button id={id}  onClick={handleClick}>{id}</button></td>
-      <td>{props.data.number}</td>
-      <td>{props.data.displayName}</td>
-      <td>{props.data.userName}</td>
-      <td>{props.data.amount}</td>
-      <td>{props.data.issued}</td>
-    </tr>
-  )
+class Row extends BaseRow {
+  render(){
+    const id = this.props.data.entityId
+    const data = this.props.data
+    return (
+      <tr id={id} onMouseOver={this.mouse} onMouseOut={this.mouse}>
+        <td><button id={id}  onClick={this.handleClick}>{id}</button></td>
+        <td>{data.number}</td>
+        <td>{data.displayName}</td>
+        <td>{data.userName}</td>
+        <td>{data.amount}</td>
+        <td>{data.issued}</td>
+      </tr>
+    )
+  }
 }
 
 class AccountsTable extends TableComponent {
   render () {
     return (
-      <form  onClick={handleClick}>
+      <form>
         <table rules='all' frame='border' >
           <caption>{this.props.title}</caption>
           <Header head={head}/>

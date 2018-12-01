@@ -2,10 +2,7 @@ import React from 'react'
 
 class TableComponent extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {data:[]};
-  }
+  state = {data:[]}
 
   componentDidMount() {
     fetch(this.props.getDataFrom) // , {mode:'cors'}
