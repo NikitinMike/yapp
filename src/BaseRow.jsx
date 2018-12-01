@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+function Item(props){
+    return(<td>{props.item}</td>)
+}
+
 class BaseRow extends Component {
 
     onMouse = (e) => {
@@ -20,7 +24,7 @@ class BaseRow extends Component {
         // console.log(row)
         return (
             <tr>
-                {row.map(item => <td key={item}>{item}</td>)}
+                {row.map(item => <Item key={item} item={item} />)}
             </tr>
         )
     }

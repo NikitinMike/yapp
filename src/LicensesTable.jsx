@@ -7,6 +7,10 @@ import BaseRow from './BaseRow';
 const head=["[№]","= Счёт =","= Имя Пользователя =","= Токен =","= Доступно ="]
 const foot=["","","","",""]
 
+function Item(props){
+  return(<td>{props.item}</td>)
+}
+
 class Row extends BaseRow {
   render(){
     const data = this.props.data
@@ -15,10 +19,10 @@ class Row extends BaseRow {
     return (
       <tr id={id}  onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <td><button id={id} onClick={this.handleClick}>{id}</button></td>
-        <td>{data.account.number}</td>
-        <td>{data.account.displayName}</td>
-        <td>{data.hashJWT}</td>
-        <td>{data.amount}</td>
+        <Item item = {data.account.number}/>
+        <Item item = {data.account.displayName}/>
+        <Item item = {data.hashJWT}/>
+        <Item item = {data.amount}/>
       </tr>
     )
   }

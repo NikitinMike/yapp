@@ -6,6 +6,10 @@ import BaseRow from './BaseRow';
 const head=["[№]","= Счёт =","= Имя =","= Пользователь ="," Доступно "," Выпущено "]
 const foot=["","","","","",""]
 
+function Item(props){
+  return(<td>{props.item}</td>)
+}
+
 class Row extends BaseRow {
   render(){
     const data = this.props.data
@@ -13,11 +17,11 @@ class Row extends BaseRow {
     return (
       <tr id={id} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <td><button id={id}  onClick={this.handleClick}>{id}</button></td>
-        <td>{data.number}</td>
-        <td>{data.displayName}</td>
-        <td>{data.userName}</td>
-        <td>{data.amount}</td>
-        <td>{data.issued}</td>
+        <Item item={data.number}/>
+        <Item item={data.displayName}/>
+        <Item item={data.userName}/>
+        <Item item={data.amount}/>
+        <Item item={data.issued}/>
       </tr>
     )
   }
