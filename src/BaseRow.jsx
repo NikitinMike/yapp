@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-function Item(props){
-    return(<td>{props.item}</td>)
-}
+function Cell(props){return(<td>{props.item}</td>)}
 
 class BaseRow extends Component {
 
@@ -10,7 +8,9 @@ class BaseRow extends Component {
         e.preventDefault();
         const parent=e.target.parentElement
         if(parent.id!==0)
-            parent.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
+            if(parent.tagName==='TD')
+                parent.parentElement.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
+            else parent.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
     }
 
     handleClick = (e) => {
@@ -24,7 +24,7 @@ class BaseRow extends Component {
         // console.log(row)
         return (
             <tr>
-                {row.map(item => <Item key={item} item={item} />)}
+                {row.map(item => <Cell key={item} item={item} />)}
             </tr>
         )
     }

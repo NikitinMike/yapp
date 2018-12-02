@@ -3,12 +3,10 @@ import Header from './Header';
 import Footer from './Footer';
 import BaseTable from './BaseTable';
 import BaseRow from './BaseRow';
-const head=["[№]","= Счёт =","= Имя =","= Пользователь ="," Доступно "," Выпущено "]
-const foot=["","","","","",""]
+const head=["[№]","= Счёт =","= Имя =","= Пользователь ="," Доступно "," Выпущено ",""]
+const foot=["","","","","","",""]
 
-function Item(props){
-  return(<td>{props.item}</td>)
-}
+function Cell(props){return(<td>{props.item}</td>)}
 
 class Row extends BaseRow {
   render(){
@@ -16,12 +14,13 @@ class Row extends BaseRow {
     const id = data.entityId
     return (
       <tr id={id} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
-        <td><button id={id}  onClick={this.handleClick}>{id}</button></td>
-        <Item item={data.number}/>
-        <Item item={data.displayName}/>
-        <Item item={data.userName}/>
-        <Item item={data.amount}/>
-        <Item item={data.issued}/>
+        <Cell item={data.entityId}/>
+        <Cell item={data.number}/>
+        <Cell item={data.displayName}/>
+        <Cell item={data.userName}/>
+        <Cell item={data.amount}/>
+        <Cell item={data.issued}/>
+        <Cell item={<button className="btn fa fa-trash" onClick={this.handleClick} />}/>
       </tr>
     )
   }
@@ -30,8 +29,8 @@ class Row extends BaseRow {
 class AccountsTable extends BaseTable {
   render () {
     return (
-      <form>
-        <table rules='all' frame='border' >
+      <form> 
+        <table rules='all' frame='border'>
           <caption>{this.props.title}</caption>
           <Header head={head}/>
           <tbody>

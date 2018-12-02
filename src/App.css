@@ -1,5 +1,20 @@
+
 .App {
   text-align: left;
+}
+
+.btn {
+    /* background-color: DodgerBlue; */
+    /* border: none; */
+    /* color: white; */
+    padding: 2px 6px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: red;
 }
 
 h1 {
