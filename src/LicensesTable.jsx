@@ -13,28 +13,25 @@ function Cell(props){return(<td>{props.item}</td>)}
 
 class Row extends BaseRow {
 
-  handleClick = (e) => {
+  remove = (e) => {
     e.preventDefault();
-    const id=e.target.parentElement.parentElement.id
     if(e.target.tagName==='BUTTON') {
       e.target.parentElement.parentElement.remove()
-      $.ajax({async:true, dataType:'jsonp', crossDomain:true,url: `${siteUrl}/license/delete/${id}`,})
-        .then(data => {this.setState({users:data});});
-      }
+      fetch(`${siteUrl}/license/delete/${e.target.parentElement.parentElement.id}`)
+    }
   }
 
   render(){
     const data = this.props.data
-    const id = data.entityId
     // console.log(data)
     return (
-      <tr id={id} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
+      <tr id={data.entityId} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <Cell item = {data.entityId}/>
         <Cell item = {data.account.number}/>
         <Cell item = {data.account.displayName}/>
         <Cell item = {data.hashJWT}/>
         <Cell item = {data.amount}/>
-        <Cell item={<button className="btn fa fa-trash" onClick={this.handleClick} />}/>
+        <Cell item={<button className="btn fa fa-trash" onClick={this.remove} />}/>
       </tr>
     )
   }

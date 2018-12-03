@@ -17,7 +17,7 @@ class BaseRow extends Component {
         e.preventDefault();
         if(e.target.tagName==='BUTTON')
           e.target.parentElement.parentElement.remove()
-        //   window.location.href = `https://licensesvc.trusted.ru/license/account/license/delete/${e.target.parentElement.parentElement.id}`;
+        //   window.location.href = `https://licensesvc.trusted.ru/license/account/license/`;
     }
 
     render () {

@@ -2,13 +2,18 @@ import React from 'react'
 
 class BaseTable extends React.Component {
 
-  state = {data:[]} // as is constructor
+  state = {data:[],refresh:false} // as is constructor
 
   componentDidMount() {
+    this.request();
+  }
+
+  request = () => {
     fetch(this.props.getDataFrom) // , {mode:'cors'}
-      .then(response => { return response.text(); })
-      .then(msg => { const data = JSON.parse(msg).data; this.setState({data});})
-      .catch(error => { console.log('Failed', error) });
+    .then(response => { return response.text(); })
+    .then(msg => { const data = JSON.parse(msg).data; this.setState({data});})
+    // .then(msg => { this.setState(JSON.parse(msg).data);})
+    .catch(error => { console.log('Failed', error) });  
   }
 
 }
