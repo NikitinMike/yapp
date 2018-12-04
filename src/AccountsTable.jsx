@@ -37,8 +37,8 @@ class Row extends BaseRow {
         <Cell item={data.userName}/>
         <Cell item={data.amount}/>
         <Cell item={data.issued}/>
-        <Cell item={<button className="btn fa fa-trash" onClick={this.remove} />} />
         <Cell item={<button className="btn fa fa-plus" onClick={this.refund} />} />
+        <Cell item={<button className="btn fa fa-trash" onClick={this.remove} />} />
       </tr>
     )
   }
