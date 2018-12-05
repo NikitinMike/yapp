@@ -1,5 +1,4 @@
 import React from 'react'
-// import $ from 'jquery'; 
 import Header from './Header';
 import Footer from './Footer';
 import BaseTable from './BaseTable';
