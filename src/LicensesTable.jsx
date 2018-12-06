@@ -4,10 +4,6 @@ import Footer from './Footer';
 import BaseTable from './BaseTable';
 import BaseRow from './BaseRow';
 
-const head=["№","Счёт","Имя Пользователя","Лицензия","Активирована","Доступно","--"]
-const foot=["","","","","","",""]
-const siteUrl='https://licensesvc.trusted.ru/license/account'
-
 function Cell(cell){return(<td>{cell.item}</td>)}
 
 class Row extends BaseRow {
@@ -16,7 +12,7 @@ class Row extends BaseRow {
     e.preventDefault();
     if(e.target.tagName==='BUTTON') {
       e.target.parentElement.parentElement.remove()
-      fetch(`${siteUrl}/license/delete/${e.target.id}`)
+      fetch(`${this.props.site}/license/delete/${e.target.id}`)
     }
   }
 
@@ -43,11 +39,11 @@ class LicensesTable extends BaseTable {
       <form>
         <table rules='all' frame='border'>
           <caption>{this.props.title}</caption>
-          <Header head={head}/>
+          <Header head={["№","Счёт","Имя Пользователя","Лицензия","Активирована","Доступно","--"]}/>
           <tbody>
-            {this.state.data.map(item => <Row key={item.entityId} data={item}/>)}
+            {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item}/>)}
           </tbody>
-          <Footer foot={foot}/>
+          <Footer foot={["","","","","","",""]}/>
         </table>
       </form>
     )
