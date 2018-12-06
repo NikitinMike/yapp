@@ -8,7 +8,7 @@ const foot=["","","","","","","","","",""]
 const siteUrl='https://licensesvc.trusted.ru/license/account'
 const jwt='eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiLQmtCw0YDQv9C-0LIiLCJzdWIiOiJDcnlwdG9BUk0gR09TVCAxMDAiLCJjb3JlIjo2NTUzNSwibmJmIjoxNTQ0MDExOTY0LCJpc3MiOiLQntCe0J4gXCLQptC40YTRgNC-0LLRi9C1INGC0LXRhdC90L7Qu9C-0LPQuNC4XCIiLCJleHAiOjE1NzU1NDc5MTMsImlhdCI6MTU0NDAxMTk2NCwianRpIjoiZjE4ZWMwMTgtY2NiOS00MTI4LWE5MzctZmNiMDg2ZjM4YmI2IiwiZGVzYyI6IkNyeXB0b0FSTSBHT1NUIDEwMCJ9.f4cfW8AYhWiqPlLhqidtqs1pH7Q4zgZhkAA3gEahY-sPEYee7POJ5LCXo7izauUrqDQ-n8C9tTM9l6i9eBQPKu-Cu8v5upYN2sRjODxgmuFFfw19FB1cp2f-ZVzmHXv2Aq5yc8Mxh6MmbymlrpQvpipZoNp0Xe31uLHPgs1wqBi2-ee2gSJaqsvAJC3td3PYWTrO8pKF5scwdzdRN9eDFVb7AR7pOzOkUJrSRsde_NkYyvaSTQ5_iRg3ts4qVKTLalo6qJyQEtuwQZc6D5Ulxmmt_0GyjiQPliKbXxJyg32MKgebvPNBipED7ViGGeRcY-Vv25hKOo1V8X1Eg2HZkQ'
 
-function Cell(props){return(<td>{props.item}</td>)}
+function Cell(cell){return(<td>{cell.item}</td>)}
 
 class Row extends BaseRow {
 

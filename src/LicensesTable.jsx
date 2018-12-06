@@ -8,7 +8,7 @@ const head=["№","Счёт","Имя Пользователя","Лицензия
 const foot=["","","","","","",""]
 const siteUrl='https://licensesvc.trusted.ru/license/account'
 
-function Cell(props){return(<td>{props.item}</td>)}
+function Cell(cell){return(<td>{cell.item}</td>)}
 
 class Row extends BaseRow {
 
