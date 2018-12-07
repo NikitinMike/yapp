@@ -25,8 +25,8 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Welcome name="Kitty"/>
-        <AccountsTable site={site} dataSrc={'accounts'} title="Счета" />
-        <LicensesTable site={site} dataSrc={'licenses'} title="Лицензии" />
+        <AccountsTable site={site} dataSrc={site+'accounts'} title="Счета" />
+        <LicensesTable site={site} dataSrc={site+'licenses'} title="Лицензии" />
       </div>
     )
   }

@@ -9,7 +9,7 @@ class BaseTable extends React.Component {
   }
 
   request = () => {
-    fetch(this.props.site+this.props.dataSrc) // , {mode:'cors'}
+    fetch(this.props.dataSrc) // , {mode:'cors'}
       .then(response => { return response.text(); })
       .then(msg => { const data = JSON.parse(msg).data; this.setState({data});})
       .catch(error => { console.log('Failed', error) });
