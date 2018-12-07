@@ -3,6 +3,7 @@ import './App.css'
 import React from 'react'
 import AccountsTable from './AccountsTable';
 import LicensesTable from './LicensesTable';
+import Journal from './Journal';
 
 // import {h, render} from 'ink';
 // import Gradient from 'ink-gradient';
@@ -27,6 +28,7 @@ class App extends React.Component {
         <Welcome name="Kitty"/>
         <AccountsTable site={site} dataSrc={site+'accounts'} title="Счета" />
         <LicensesTable site={site} dataSrc={site+'licenses'} title="Лицензии" />
+        <Journal site={site} dataSrc={site+'journal'} title="Журнал" />
       </div>
     )
   }
