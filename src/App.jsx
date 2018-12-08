@@ -15,7 +15,7 @@ function Welcome(props) { return <h1>Hello, {props.name}!</h1>;}
 
 class App extends React.Component {
 
-  state = {table:[]} // as is constructor
+  state = {table:[],accountNumber:''} // as is constructor
 
   click = (e) => {
     // e.preventDefault();
@@ -27,15 +27,25 @@ class App extends React.Component {
     // this.render()
   }
 
+  showJournal = (e) =>{
+    const accountNumber=e;
+    this.setState({accountNumber});
+    // console.log(e)
+    const table = this.state.table
+    table["Журнал"]=true;
+    this.setState({table});
+  }
+
   render () {
     const menu=["Лицензии","Журнал"]
+    // const full={site+'journal'}
     return (
       <div className='App'>
         <MyMenu menu={menu} click={this.click}/>
         <Welcome name="Kitty"/>
-        <AccountsTable site={site} dataSrc={site+'accounts'} title="Счета" />
+        <AccountsTable showJournal={this.showJournal} site={site} dataSrc={site+'accounts'} title="Счета" />
         {this.state.table[menu[0]] && <LicensesTable site={site} dataSrc={site+'licenses'} title={menu[0]} />}
-        {this.state.table[menu[1]] && <Journal site={site} dataSrc={site+'journal'} title={menu[1]} />}
+        {this.state.table[menu[1]] && <Journal site={site} dataSrc={site+'operations/'+this.state.accountNumber} title={menu[1]} />}
       </div>
     )
   }

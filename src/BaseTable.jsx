@@ -9,7 +9,9 @@ class BaseTable extends React.Component {
   }
 
   request = () => {
-    fetch(this.props.dataSrc) // , {mode:'cors'}
+    // console.log(this.props.dataSrc)
+    this.props.dataSrc &&
+    fetch(this.props.dataSrc,{mode:'cors'})
       .then(response => { return response.text(); })
       .then(msg => { const data = JSON.parse(msg).data; this.setState({data});})
       .catch(error => { console.log('Failed', error) });

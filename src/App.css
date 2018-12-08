@@ -26,13 +26,18 @@ body{ padding:1em; font-family:arial; }
 
 .flex-itm2 {
   background: #5a5;
-  font-size: 1rem;
-  color: #eee;
+  font-size: 1.4rem;
+  color: #000;
+  padding: 2px;
+  padding-left: 9px;
+  padding-right: 9px;
   font-family: monospace;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 .colAccount {
-  background: lightgray;
+  /* background: lightgray; */
 }
 
 #row:checked ~ .flex {
@@ -65,7 +70,7 @@ h1 {
 }
 
 table {
-  margin-left: 10%;
+  margin-left: 30pt;
   margin-top: 10px;
   width: 80%;
   /* border: 1px 1px 1px 1px; */
@@ -73,6 +78,9 @@ table {
 }
 
 td {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-bottom: 4px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;

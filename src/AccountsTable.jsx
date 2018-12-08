@@ -15,6 +15,8 @@ class Row extends BaseRow {
     if(e.target.tagName==='BUTTON') {
       e.target.parentElement.parentElement.remove()
       fetch(`${this.props.site}/delete/${e.target.parentElement.parentElement.id}`)
+        // .then(msg => {this.props.refresh()})
+        // .then(msg => {e.target.parentElement.parentElement.remove()})
     }
   }
 
@@ -34,11 +36,13 @@ class Row extends BaseRow {
     }
   }
 
-  showButton = (e) => {
+  showHist = (e) => {
     e.preventDefault();
     const parent=e.target.parentElement
     if(parent.id!==0)
-        if(parent.tagName==='TD');
+      if(parent.tagName==='TD')
+        this.props.showJournal(e.target.id);
+          // console.log(e.target.id);
             // parent.parentElement.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
         // else parent.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
   }
@@ -49,7 +53,7 @@ class Row extends BaseRow {
       <tr id={data.number} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <Cell item={data.entityId}/>
         {/* <Cell item={data.number} onMouseOver={this.showButton}/> */}
-        <td className="colAccount"><button className="flex-itm2">{data.number}</button></td>
+        <td className="colAccount"><button onClick={this.showHist} className="flex-itm2" id={data.number}>{data.number}</button></td>
         <Cell item={data.created}/>
         <Cell item={data.displayName}/>
         <Cell item={data.userName}/>
@@ -79,7 +83,7 @@ class AccountsTable extends BaseTable {
           <caption onDoubleClick={this.newAccount}><button className="flex-itm" onClick={this.newAccount}>{this.props.title}</button></caption>
           <Header head={["№","Счёт","Создан","Имя","","Лиц.","Токен","amount","issued","--"]}/>
           <tbody>
-            {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item} refresh={this.request}/>)}
+            {this.state.data.map(item => <Row showJournal={this.props.showJournal} site={this.props.site} key={item.entityId} data={item} refresh={this.request}/>)}
           </tbody>
           <Footer foot={["","","","","","","","","",""]}/>
         </table>
