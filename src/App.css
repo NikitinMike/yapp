@@ -3,6 +3,36 @@
   text-align: left;
 }
 
+body{ padding:1em; font-family:arial; }
+
+/* .flex{ display: flex; } */
+.flex {
+  background: #a55;
+  padding: 5px;
+  display: flex;
+	justify-content: center;
+}
+.flex-itm {
+    background: #5a5;
+    font-size: 2.5rem;
+    color: #eee;
+    margin-left: 55px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    min-width: 25%;
+    text-align: center;
+}
+
+#row:checked ~ .flex {
+    width: 325px;
+}
+
+#column:checked ~ .flex {
+    flex-direction: column;
+    height: 350px;
+}
+
 .btn {
     /* background-color: DodgerBlue; */
     /* border: none; */

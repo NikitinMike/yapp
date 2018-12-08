@@ -1,29 +1,27 @@
-
 import React from 'react'
-import { View, Text } from 'react-native';
-import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 
+class MenuItem extends React.Component {
 
-class MyMenu extends React.Component {
-
-    _menu = null;
-    setMenuRef = ref => {this._menu = ref;};
-    hideMenu = () => {this._menu.hide();};
-    showMenu = () => {this._menu.show();};
+    click = (e) => {
+        e.preventDefault();
+        // alert(e.target.innerText)
+    }
 
     render () {
         return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Menu
-            ref={this.setMenuRef}
-            button={<Text onPress={this.showMenu}>Show menu</Text>}>
-            <MenuItem onPress={this.hideMenu}>Menu item 1</MenuItem>
-            <MenuItem onPress={this.hideMenu}>Menu item 2</MenuItem>
-            <MenuItem onPress={this.hideMenu} disabled>Menu item 3</MenuItem>
-            <MenuDivider />
-            <MenuItem onPress={this.hideMenu}>Menu item 4</MenuItem>
-            </Menu>
-        </View>
+            <button className="flex-itm" onClick={this.click}>{this.props.item}</button>
+        )
+    }
+
+}
+
+class MyMenu extends React.Component {
+
+    render () {
+        return (
+            <div className="flex">
+                {this.props.menu.map(item => <MenuItem key={item} item={item} />)}
+            </div>
         )
     }
 }
