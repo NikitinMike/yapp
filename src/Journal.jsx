@@ -16,7 +16,7 @@ class Row extends BaseRow {
         <Cell item = {data.entityId}/>
         <Cell item = {data.userIP}/>
         <Cell item = {data.timestamp}/>
-        <td>{data.operation}</td>
+        <Cell item = {data.operation}/>
       </tr>
     )
   }
@@ -24,7 +24,7 @@ class Row extends BaseRow {
 
 class Journal extends BaseTable {
   render () {
-    console.log(this.state.data)
+    // console.log(this.state.data)
     return (
       <form>
         <table rules='all' frame='border'>
