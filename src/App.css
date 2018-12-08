@@ -8,20 +8,31 @@ body{ padding:1em; font-family:arial; }
 /* .flex{ display: flex; } */
 .flex {
   background: #a55;
-  padding: 5px;
+  padding: 9px;
   display: flex;
 	justify-content: center;
 }
 .flex-itm {
     background: #5a5;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #eee;
-    margin-left: 55px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 15px;
+    margin-left: 5px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding: 1px;
     min-width: 25%;
     text-align: center;
+}
+
+.flex-itm2 {
+  background: #5a5;
+  font-size: 1rem;
+  color: #eee;
+  font-family: monospace;
+}
+
+.colAccount {
+  background: lightgray;
 }
 
 #row:checked ~ .flex {
@@ -48,7 +59,7 @@ body{ padding:1em; font-family:arial; }
 }
 
 h1 {
-  margin-block-start: 50px;
+  margin-block-start: 15px;
   text-align: center;
   color: brown;
 }
@@ -88,5 +99,6 @@ caption {
   text-align: center ;
   background-color: black;
   color: aqua ;
-  font-size: 200%;
+  font-size: 120%;
+  padding: 9px;
 }

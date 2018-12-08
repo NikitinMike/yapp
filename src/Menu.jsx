@@ -2,14 +2,9 @@ import React from 'react'
 
 class MenuItem extends React.Component {
 
-    click = (e) => {
-        e.preventDefault();
-        // alert(e.target.innerText)
-    }
-
     render () {
         return (
-            <button className="flex-itm" onClick={this.click}>{this.props.item}</button>
+            <button className="flex-itm" onClick={this.props.click}>{this.props.item}</button>
         )
     }
 
@@ -20,7 +15,7 @@ class MyMenu extends React.Component {
     render () {
         return (
             <div className="flex">
-                {this.props.menu.map(item => <MenuItem key={item} item={item} />)}
+                {this.props.menu.map(item => <MenuItem key={item} item={item} click={this.props.click}/>)}
             </div>
         )
     }

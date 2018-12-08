@@ -15,15 +15,27 @@ function Welcome(props) { return <h1>Hello, {props.name}!</h1>;}
 
 class App extends React.Component {
 
+  state = {table:[]} // as is constructor
+
+  click = (e) => {
+    // e.preventDefault();
+    const item=e.target.innerText
+    const table = this.state.table
+    table[item]=!table[item]
+    // console.log(item,this.state.table[item])
+    this.setState({table});
+    // this.render()
+  }
+
   render () {
-    var menu=["Счета","Лицензии","Журнал"]
+    const menu=["Лицензии","Журнал"]
     return (
       <div className='App'>
-        {/* <Welcome name="Kitty"/> */}
-        <MyMenu menu={menu}/>
+        <MyMenu menu={menu} click={this.click}/>
+        <Welcome name="Kitty"/>
         <AccountsTable site={site} dataSrc={site+'accounts'} title="Счета" />
-        {true && <LicensesTable site={site} dataSrc={site+'licenses'} title="Лицензии" />}
-        {true && <Journal site={site} dataSrc={site+'journal'} title="Журнал" />}
+        {this.state.table[menu[0]] && <LicensesTable site={site} dataSrc={site+'licenses'} title={menu[0]} />}
+        {this.state.table[menu[1]] && <Journal site={site} dataSrc={site+'journal'} title={menu[1]} />}
       </div>
     )
   }

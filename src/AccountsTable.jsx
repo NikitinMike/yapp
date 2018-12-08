@@ -34,12 +34,22 @@ class Row extends BaseRow {
     }
   }
 
+  showButton = (e) => {
+    e.preventDefault();
+    const parent=e.target.parentElement
+    if(parent.id!==0)
+        if(parent.tagName==='TD');
+            // parent.parentElement.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
+        // else parent.style.backgroundColor = (e.type==='mouseover') ? 'red':'';
+  }
+
   render(){
     const data = this.props.data
     return (
       <tr id={data.number} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <Cell item={data.entityId}/>
-        <Cell item={data.number}/>
+        {/* <Cell item={data.number} onMouseOver={this.showButton}/> */}
+        <td className="colAccount"><button className="flex-itm2">{data.number}</button></td>
         <Cell item={data.created}/>
         <Cell item={data.displayName}/>
         <Cell item={data.userName}/>
@@ -66,7 +76,7 @@ class AccountsTable extends BaseTable {
     return (
       <form>
         <table rules='all' frame='border'>
-          <caption onDoubleClick={this.newAccount}>{this.props.title}</caption>
+          <caption onDoubleClick={this.newAccount}><button className="flex-itm" onClick={this.newAccount}>{this.props.title}</button></caption>
           <Header head={["№","Счёт","Создан","Имя","","Лиц.","Токен","amount","issued","--"]}/>
           <tbody>
             {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item} refresh={this.request}/>)}
