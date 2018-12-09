@@ -37,19 +37,5 @@
         // this.state.licenses=licenses
       })
       .catch(function(error) { console.log('Request failed', error) });
-    /*
-      .then(
-        function(response) {
-          console.log("FETCH!")
-          if (response.status !== 200) {  
-            console.log('Looks like there was a problem. Status Code: ' + response.status);  
-            return;  
-          }
-          // Examine the text in the response  
-          console.log(response.json)
-          response.json().then(function(data) { console.log(data); });  
-        }  
-      )
-      .catch(function(err) { console.log('Fetch Error :-S', err);});
-      */
-    }
+
+  }

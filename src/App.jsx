@@ -42,10 +42,10 @@ class App extends React.Component {
     return (
       <div className='App'>
         <MyMenu menu={menu} click={this.click}/>
-        <Welcome name="Kitty"/>
+        {/* <Welcome name="Kitty"/> */}
         <AccountsTable showJournal={this.showJournal} site={site} dataSrc={site+'accounts'} title="Счета" />
         {this.state.table[menu[0]] && <LicensesTable site={site} dataSrc={site+'licenses'} title={menu[0]} />}
-        {this.state.table[menu[1]] && <Journal site={site} dataSrc={site+'operations/'+this.state.accountNumber} title={menu[1]} />}
+        {this.state.table[menu[1]] && <Journal site={site} dataSrc={site+'operations/'+this.state.accountNumber} title={this.state.accountNumber} />}
       </div>
     )
   }
