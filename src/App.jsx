@@ -9,7 +9,6 @@ import Journal from './Journal';
 
 import MyMenu from './Menu';
 // import Welcome from './Welcome';
-
 // import BigTitle from './BigTitle';
 
 const site='https://licensesvc.trusted.ru/license/account/'

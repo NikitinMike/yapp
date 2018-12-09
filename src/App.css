@@ -12,13 +12,13 @@ body{ padding:1em; font-family:arial; }
 
 /* .flex{ display: flex; } */
 .flex {
-  background: #a55;
+  background: rgb(57, 161, 231);
   padding: 9px;
   display: flex;
 	justify-content: center;
 }
 .flex-itm {
-    background: #5a5;
+    background: rgb(92, 197, 92);
     font-size: 2rem;
     color: #eee;
     margin-left: 5px;
@@ -30,9 +30,9 @@ body{ padding:1em; font-family:arial; }
 }
 
 .flex-itm2 {
-  background: #5a5;
+  background: rgb(92, 197, 92);
   font-size: 1.4rem;
-  color: #000;
+  color: #FFF;
   padding: 2px;
   padding-left: 9px;
   padding-right: 9px;
@@ -55,10 +55,10 @@ body{ padding:1em; font-family:arial; }
 }
 
 .btn {
-    /* background-color: DodgerBlue; */
+    background-color: rgb(30, 240, 255);
     /* border: none; */
     /* color: white; */
-    padding: 2px 6px;
+    padding: 2px 2px;
     font-size: 20px;
     cursor: pointer;
 }
@@ -75,9 +75,9 @@ h1 {
 }
 
 table {
-  margin-left: 30pt;
+  margin-left: 20pt;
   margin-top: 10px;
-  width: 80%;
+  width: 94%;
   /* border: 1px 1px 1px 1px; */
   border-color: brown;
 }
@@ -112,6 +112,6 @@ caption {
   text-align: center ;
   background-color: black;
   color: aqua ;
-  font-size: 120%;
+  font-size: 200%;
   padding: 9px;
 }

@@ -38,7 +38,7 @@ class Journal extends BaseTable {
     return (
       <form>
         <table rules='all' frame='border'>
-          <caption> Операции по счёту {this.props.title} </caption>
+          <caption> Операции #{this.props.title} </caption>
           <Header head={["№","Адрес","Время","Операция"]}/>
           <tbody>
             {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item}/>)}
