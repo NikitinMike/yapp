@@ -15,7 +15,11 @@ function Welcome(props) { return <h1>Hello, {props.name}!</h1>;}
 
 class App extends React.Component {
 
-  state = {table:[],accountNumber:''} // as is constructor
+  state = {table:[],accountNumber:'',
+    accountSrc:site+'accounts',
+    licenseSrc:site+'licenses',
+    journalSrc:site+'journal',
+  } // as is constructor
 
   click = (e) => {
     // e.preventDefault();
@@ -30,6 +34,8 @@ class App extends React.Component {
   showJournal = (e) =>{
     const accountNumber=e;
     this.setState({accountNumber});
+    const journalSrc = site+'operations/'+accountNumber
+    this.setState({journalSrc});
     // console.log(e)
     const table = this.state.table
     table["Журнал"]=true;
@@ -42,10 +48,10 @@ class App extends React.Component {
     return (
       <div className='App'>
         <MyMenu menu={menu} click={this.click}/>
-        {/* <Welcome name="Kitty"/> */}
-        <AccountsTable showJournal={this.showJournal} site={site} dataSrc={site+'accounts'} title="Счета" />
-        {this.state.table[menu[0]] && <LicensesTable site={site} dataSrc={site+'licenses'} title={menu[0]} />}
-        {this.state.table[menu[1]] && <Journal site={site} dataSrc={site+'operations/'+this.state.accountNumber} title={this.state.accountNumber} />}
+        <Welcome name="Kitty"/>
+        <AccountsTable showJournal={this.showJournal} site={site} dataSrc={this.state.accountSrc} title="Счета" />
+        {this.state.table[menu[0]] && <LicensesTable site={site} dataSrc={this.state.licenseSrc} title={menu[0]} />}
+        {this.state.table[menu[1]] && <Journal site={site} dataSrc={this.state.journalSrc} title={this.state.accountNumber} />}
       </div>
     )
   }
