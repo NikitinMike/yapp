@@ -15,8 +15,9 @@ body{ padding:1em; font-family:arial; }
   background: rgb(57, 161, 231);
   padding: 9px;
   display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 }
+
 .flex-itm {
     background: rgb(92, 197, 92);
     font-size: 2rem;

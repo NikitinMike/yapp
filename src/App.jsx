@@ -1,18 +1,18 @@
 import './App.css'
 // import './bootstrap/css/bootstrap.css'
 import React from 'react'
-// import Menu from '@material-ui/core/Menu';
 
 import AccountsTable from './AccountsTable';
 import LicensesTable from './LicensesTable';
 import Journal from './Journal';
+import Products from './Products';
 
 import MyMenu from './Menu';
 // import Welcome from './Welcome';
 // import BigTitle from './BigTitle';
 
 const site='https://licensesvc.trusted.ru/license/account/'
-function Welcome(props) { return <h1>Hello, {props.name}!</h1>;}
+function Welcome(props) { return <h1 hidden>Hello, {props.name}!</h1>;}
 
 class App extends React.Component {
 
@@ -20,9 +20,12 @@ class App extends React.Component {
     accountSrc:site+'accounts',
     licenseSrc:site+'licenses',
     journalSrc:site+'journal',
+    productSrc:site+'products',
   } // as is constructor
 
   click = (e) => {
+    // const productSrc = site+'products'
+    // this.setState({productSrc});
     // e.preventDefault();
     const item=e.target.innerText
     const table = this.state.table
@@ -39,20 +42,20 @@ class App extends React.Component {
     this.setState({journalSrc});
     // console.log(e)
     const table = this.state.table
-    table["Журнал"]=true;
+    table["Журнал"]=!table["Журнал"];
     this.setState({table});
+    // this.render()
   }
 
   render () {
-    const menu=["Лицензии","Журнал"]
-    // const full={site+'journal'}
     return (
       <div className='App'>
-        <MyMenu menu={menu} click={this.click}/>
+        <MyMenu menu={["Лицензии","Журнал","Продукты"]} click={this.click}/>
         <Welcome name="Kitty"/>
+        {this.state.table["Продукты"] && <Products site={site} dataSrc={this.state.productSrc} title={"Продукты"} />}
         <AccountsTable showJournal={this.showJournal} site={site} dataSrc={this.state.accountSrc} title="Счета" />
-        {this.state.table[menu[0]] && <LicensesTable site={site} dataSrc={this.state.licenseSrc} title={menu[0]} />}
-        {this.state.table[menu[1]] && <Journal site={site} dataSrc={this.state.journalSrc} title={this.state.accountNumber} />}
+        {this.state.table["Лицензии"] && <LicensesTable site={site} dataSrc={this.state.licenseSrc} title={"Лицензии"} />}
+        {this.state.table["Журнал"] && <Journal site={site} dataSrc={this.state.journalSrc} title={this.state.accountNumber} />}
       </div>
     )
   }

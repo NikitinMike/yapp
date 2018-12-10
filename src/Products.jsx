@@ -14,26 +14,26 @@ class Row extends BaseRow {
     return (
       <tr id={data.entityId} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <Cell item = {data.entityId}/>
-        <Cell item = {data.userIP}/>
-        <Cell item = {data.timestamp}/>
-        <Cell item = {data.operation}/>
+        <Cell item = {data.name}/>
+        <Cell item = {data.options}/>
+        <Cell item = {data.uuid}/>
       </tr>
     )
   }
 }
 
-class Journal extends BaseTable {
+class Products extends BaseTable {
 
   render () {
-    // this.request();
+    // !this.state.data && this.request();
     // console.log(this.state.data)
     return (
       <form>
         <table rules='all' frame='border'>
-          <caption> Операции #{this.props.title} </caption>
-          <Header head={["№","Адрес","Время","Операция"]}/>
+          <caption> {this.props.title} </caption>
+          <Header head={["[№]","Название","Параметры","Идентификатор"]}/>
           <tbody>
-            {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item}/>)}
+            {this.state.data.map(item => !item.disabled && <Row site={this.props.site} key={item.entityId} data={item}/>)}
           </tbody>
           <Footer foot={["","","",""]}/>
         </table>
@@ -43,4 +43,4 @@ class Journal extends BaseTable {
   
 }
 
-export default Journal
+export default Products
