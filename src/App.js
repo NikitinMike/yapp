@@ -2,10 +2,10 @@ import './App.css'
 // import './bootstrap/css/bootstrap.css'
 import React from 'react'
 
-import AccountsTable from './AccountsTable';
-import LicensesTable from './LicensesTable';
-import Journal from './Journal';
-import Products from './Products';
+import Accounts from './TableAccounts';
+import Licenses from './TableLicenses';
+import Journal from './TableJournal';
+import Products from './TableProducts';
 
 import MyMenu from './Menu';
 // import Welcome from './Welcome';
@@ -53,8 +53,8 @@ class App extends React.Component {
         <MyMenu menu={["Лицензии","Журнал","Продукты"]} click={this.click}/>
         <Welcome name="Kitty"/>
         {this.state.table["Продукты"] && <Products site={site} dataSrc={this.state.productSrc} title={"Продукты"} />}
-        <AccountsTable showJournal={this.showJournal} site={site} dataSrc={this.state.accountSrc} title="Счета" />
-        {this.state.table["Лицензии"] && <LicensesTable site={site} dataSrc={this.state.licenseSrc} title={"Лицензии"} />}
+        <Accounts showJournal={this.showJournal} site={site} dataSrc={this.state.accountSrc} title="Счета" />
+        {this.state.table["Лицензии"] && <Licenses site={site} dataSrc={this.state.licenseSrc} title={"Лицензии"} />}
         {this.state.table["Журнал"] && <Journal site={site} dataSrc={this.state.journalSrc} title={this.state.accountNumber} />}
       </div>
     )

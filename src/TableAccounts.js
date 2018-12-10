@@ -64,7 +64,7 @@ class Row extends BaseRow {
   }
 }
 
-class AccountsTable extends BaseTable {
+class Accounts extends BaseTable {
 
   newAccount = (e) => {
     e.preventDefault();
@@ -89,4 +89,4 @@ class AccountsTable extends BaseTable {
   }
 }
 
-export default AccountsTable
+export default Accounts

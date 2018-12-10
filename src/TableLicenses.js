@@ -33,7 +33,7 @@ class Row extends BaseRow {
   }
 }
 
-class LicensesTable extends BaseTable {
+class Licenses extends BaseTable {
   render () {
     return (
       <form>
@@ -50,4 +50,4 @@ class LicensesTable extends BaseTable {
   }
 }
 
-export default LicensesTable
+export default Licenses
