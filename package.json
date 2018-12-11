@@ -1,5 +1,6 @@
 {
-  "name": "my-app",
+  "name": "admin-app",
+  "homepage" : "https://licensesvc.trusted.ru/license/account",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
