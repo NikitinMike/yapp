@@ -14,8 +14,9 @@ class Row extends BaseRow {
     return (
       <tr id={data.entityId} onMouseOver={this.onMouse} onMouseOut={this.onMouse}>
         <Cell item = {data.entityId}/>
-        <Cell item = {data.userIP}/>
         <Cell item = {data.timestamp}/>
+        <Cell item = {data.userIP}/>
+        <Cell item = {data.userName}/>
         <Cell item = {data.operation}/>
       </tr>
     )
@@ -31,11 +32,11 @@ class Journal extends BaseTable {
       <form>
         <table rules='all' frame='border'>
           <caption> Операции #{this.props.title} </caption>
-          <Header head={["№","Адрес","Время","Операция"]}/>
+          <Header head={["№","Время","Адрес","Имя","Операция"]}/>
           <tbody>
             {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item}/>)}
           </tbody>
-          <Footer foot={["","","",""]}/>
+          <Footer foot={["","","","",""]}/>
         </table>
       </form>
     )
