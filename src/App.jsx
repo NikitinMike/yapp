@@ -23,7 +23,7 @@ class App extends React.Component {
     productSrc:site+'products',
   } // as is constructor
 
-  click = (e) => {
+  menuBarClick = (e) => {
     // const productSrc = site+'products'
     // this.setState({productSrc});
     // e.preventDefault();
@@ -42,7 +42,7 @@ class App extends React.Component {
     this.setState({journalSrc});
     // console.log(e)
     const table = this.state.table
-    table["Журнал"]=!table["Журнал"];
+    if(!table["Журнал"])table["Журнал"]=true;
     this.setState({table});
     // this.render()
   }
@@ -50,12 +50,12 @@ class App extends React.Component {
   render () {
     return (
       <div className='App'>
-        <MyMenu menu={["Лицензии","Журнал","Продукты"]} click={this.click}/>
+        <MyMenu menu={["Лицензии","Журнал","Продукты"]} click={this.menuBarClick}/>
         <Welcome name="Kitty"/>
-        {this.state.table["Продукты"] && <Products site={site} dataSrc={this.state.productSrc} title={"Продукты"} />}
-        <Accounts showJournal={this.showJournal} site={site} dataSrc={this.state.accountSrc} title="Счета" />
-        {this.state.table["Лицензии"] && <Licenses site={site} dataSrc={this.state.licenseSrc} title={"Лицензии"} />}
-        {this.state.table["Журнал"] && <Journal site={site} dataSrc={this.state.journalSrc} title={this.state.accountNumber} />}
+        {this.state.table["Продукты"] && <Products dataSrc={this.state.productSrc} title={"Продукты"} />}
+        <Accounts showJournal={this.showJournal} dataSrc={this.state.accountSrc} title="Счета" />
+        {this.state.table["Лицензии"] && <Licenses dataSrc={this.state.licenseSrc} title={"Лицензии"} />}
+        {this.state.table["Журнал"] && <Journal dataSrc={this.state.journalSrc} title={this.state.accountNumber} />}
       </div>
     )
   }

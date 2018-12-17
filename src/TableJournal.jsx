@@ -34,7 +34,7 @@ class Journal extends BaseTable {
           <caption> Операции #{this.props.title} </caption>
           <Header head={["№","Время","Адрес","Имя","Операция"]}/>
           <tbody>
-            {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item}/>)}
+            {this.state.data.map(item => <Row key={item.entityId} data={item}/>)}
           </tbody>
           <Footer foot={["","","","",""]}/>
         </table>
