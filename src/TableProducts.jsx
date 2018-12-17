@@ -33,7 +33,7 @@ class Products extends BaseTable {
           <caption> {this.props.title} </caption>
           <Header head={["[№]","Название","Параметры","Идентификатор"]}/>
           <tbody>
-            {this.state.data.map(item => !item.disabled && <Row site={this.props.site} key={item.entityId} data={item}/>)}
+            {this.state.data.map(item => !item.disabled && <Row key={item.entityId} data={item}/>)}
           </tbody>
           <Footer foot={["","","",""]}/>
         </table>

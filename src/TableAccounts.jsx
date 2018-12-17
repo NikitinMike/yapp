@@ -4,6 +4,7 @@ import Footer from './TableFooter';
 import BaseTable from './BaseTable';
 import BaseRow from './BaseRow';
 import token from './CryptoARMGOST100.json'
+import { baseUrl } from './App';
 const jwt=token.jwt
  
 function Cell(cell){return(<td>{cell.item}</td>)}
@@ -14,7 +15,7 @@ class Row extends BaseRow {
     e.preventDefault();
     if(e.target.tagName==='BUTTON') {
       e.target.parentElement.parentElement.remove()
-      fetch(`${this.props.site}/delete/${e.target.parentElement.parentElement.id}`)
+      fetch(`${baseUrl}/delete/${e.target.parentElement.parentElement.id}`)
         // .then(msg => {this.props.refresh()})
         // .then(msg => {e.target.parentElement.parentElement.remove()})
     }
@@ -23,7 +24,7 @@ class Row extends BaseRow {
   refund = (e) => {
     e.preventDefault();
     if(e.target.tagName==='BUTTON') {
-      fetch(`${this.props.site}/activate/${e.target.parentElement.parentElement.id}?jwt=${jwt}`)
+      fetch(`${baseUrl}/activate/${e.target.parentElement.parentElement.id}?jwt=${jwt}`)
         .then(msg => {this.props.refresh()})
     }
   }
@@ -31,7 +32,7 @@ class Row extends BaseRow {
   issue = (e) => {
     e.preventDefault();
     if(e.target.tagName==='BUTTON') {
-      fetch(`${this.props.site}/issuetoken/${e.target.id}`)
+      fetch(`${baseUrl}/issuetoken/${e.target.id}`)
         .then(msg => {this.props.refresh()})
     }
   }
@@ -68,7 +69,7 @@ class Accounts extends BaseTable {
 
   newAccount = (e) => {
     e.preventDefault();
-    fetch(`${this.props.site}/new`,{mode:'cors'})
+    fetch(`${baseUrl}/new`,{mode:'cors'})
       .then(response => { this.request() })
       .catch(error => { console.log('Failed', error) });
   }
@@ -80,7 +81,7 @@ class Accounts extends BaseTable {
           <caption onDoubleClick={this.newAccount}><button className="flex-itm" onClick={this.newAccount}>{this.props.title}</button></caption>
           <Header head={["[№]","Счёт","Создан","Имя","user","Лиц.","Токен","доступно","выдано","--"]}/>
           <tbody>
-            {this.state.data.map(item => <Row showJournal={this.props.showJournal} site={this.props.site} key={item.entityId} data={item} refresh={this.request}/>)}
+            {this.state.data.map(item => <Row showJournal={this.props.showJournal} key={item.entityId} data={item} refresh={this.request}/>)}
           </tbody>
           <Footer foot={["","","","","","","","","",""]}/>
         </table>

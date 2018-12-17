@@ -12,6 +12,8 @@ import MyMenu from './Menu';
 // import BigTitle from './BigTitle';
 
 const site='https://licensesvc.trusted.ru/license/account/'
+export const baseUrl='/license/account';
+
 function Welcome(props) { return <h1 hidden>Hello, {props.name}!</h1>;}
 
 class App extends React.Component {

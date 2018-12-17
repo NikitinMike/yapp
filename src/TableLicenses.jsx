@@ -3,6 +3,7 @@ import Header from './TableHeader';
 import Footer from './TableFooter';
 import BaseTable from './BaseTable';
 import BaseRow from './BaseRow';
+import { baseUrl } from './App';
 
 function Cell(cell){return(<td>{cell.item}</td>)}
 
@@ -12,7 +13,7 @@ class Row extends BaseRow {
     e.preventDefault();
     if(e.target.tagName==='BUTTON') {
       e.target.parentElement.parentElement.remove()
-      fetch(`${this.props.site}/license/delete/${e.target.id}`)
+      fetch(`${baseUrl}/license/delete/${e.target.id}`)
     }
   }
 
@@ -41,7 +42,7 @@ class Licenses extends BaseTable {
           <caption>{this.props.title}</caption>
           <Header head={["[№]","Счёт","Имя","Лицензия","Активирована","Доступно","--"]}/>
           <tbody>
-            {this.state.data.map(item => <Row site={this.props.site} key={item.entityId} data={item}/>)}
+            {this.state.data.map(item => <Row key={item.entityId} data={item}/>)}
           </tbody>
           <Footer foot={["","","","","","",""]}/>
         </table>
