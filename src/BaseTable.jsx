@@ -4,30 +4,22 @@ class BaseTable extends React.Component {
 
   state = {data:[],dataSrc:""} // as is constructor
 
-  componentDidMount() {
+  componentWillMount() {
     this.request();
   }
 
-  componentWillReceiveProps(nextProps){
-    if (nextProps.dataSrc!==this.state.dataSrc) this.request();
-  }
-
-  // componentWillUpdate(nextProps, nextState, nextContext){
-  //   // console.log(nextProps)
-  //   // console.log(nextState)
-  // }
-
   request = () => {
-    // console.log(this.props.dataSrc)
-    this.props.dataSrc && fetch(this.props.dataSrc) // ,{mode:'cors'}
-      .then(response => { return response.text(); })
-      .then(msg => { 
-          const data = JSON.parse(msg).data; 
-          this.setState({data});
-          const dataSrc = this.props.dataSrc;
-          this.setState({dataSrc});
-        })
-      .catch(error => { console.log('Failed', error) });
+    const dataSrc = this.props.dataSrc
+    // console.log(dataSrc)
+    if(dataSrc && (this.state.dataSrc!==dataSrc))
+      fetch(dataSrc) // ,{mode:'cors'}
+        .then(response => { return response.text(); })
+        .then(msg => { 
+            this.setState({dataSrc});
+            const data = JSON.parse(msg).data; 
+            this.setState({data});
+          })
+        .catch(error => { console.log('Failed', error) });
   }
 
 }

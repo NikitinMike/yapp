@@ -39,12 +39,13 @@ class App extends React.Component {
 
   showJournal = (e) =>{
     const accountNumber=e;
+    // if (accountNumber!==this.state.accountNumber) console.log(accountNumber);
     this.setState({accountNumber});
     const journalSrc = site+'operations/'+accountNumber
     this.setState({journalSrc});
     // console.log(e)
     const table = this.state.table
-    if(!table["Журнал"])table["Журнал"]=true;
+    table["Журнал"]=!table["Журнал"];
     this.setState({table});
     // this.render()
   }
