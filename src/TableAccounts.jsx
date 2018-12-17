@@ -35,6 +35,7 @@ class Row extends BaseRow {
       fetch(`${baseUrl}/issuetoken/${e.target.id}`)
         .then(msg => {this.props.refresh()})
     }
+    // refresh licenses table
   }
 
   showHist = (e) => {
@@ -72,6 +73,7 @@ class Accounts extends BaseTable {
     fetch(`${baseUrl}/new`,{mode:'cors'})
       .then(response => { this.request() })
       .catch(error => { console.log('Failed', error) });
+    this.render ();
   }
 
   render () {

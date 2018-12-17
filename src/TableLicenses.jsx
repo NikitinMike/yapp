@@ -35,6 +35,7 @@ class Row extends BaseRow {
 }
 
 class Licenses extends BaseTable {
+  // refresh(){this.request()}
   render () {
     return (
       <form>

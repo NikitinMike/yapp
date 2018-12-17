@@ -23,6 +23,7 @@ class App extends React.Component {
     licenseSrc:site+'licenses',
     journalSrc:site+'journal',
     productSrc:site+'products',
+    checkLicenses:false
   } // as is constructor
 
   menuBarClick = (e) => {
