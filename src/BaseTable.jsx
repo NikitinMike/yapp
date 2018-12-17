@@ -9,7 +9,7 @@ class BaseTable extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if (nextProps.dataSrc!==this.props.dataSrc) this.request();
+    if (nextProps.dataSrc!==this.state.dataSrc) this.request();
   }
 
   // componentWillUpdate(nextProps, nextState, nextContext){
