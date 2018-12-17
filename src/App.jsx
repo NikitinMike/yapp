@@ -59,7 +59,7 @@ class App extends React.Component {
         {this.state.table["Продукты"] && <Products dataSrc={this.state.productSrc} title={"Продукты"} />}
         <Accounts showJournal={this.showJournal} dataSrc={this.state.accountSrc} title="Счета" />
         {this.state.table["Лицензии"] && <Licenses dataSrc={this.state.licenseSrc} title={"Лицензии"} />}
-        {this.state.table["Журнал"] && <Journal dataSrc={this.state.journalSrc} title={this.state.accountNumber} />}
+        {this.state.table["Журнал"] && <Journal dataSrc={this.state.journalSrc} title={`Операции ${this.state.accountNumber}`} />}
       </div>
     )
   }
