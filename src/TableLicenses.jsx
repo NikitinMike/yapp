@@ -13,7 +13,7 @@ class Row extends BaseRow {
     e.preventDefault();
     if(e.target.tagName==='BUTTON') {
       e.target.parentElement.parentElement.remove()
-      fetch(`${baseUrl}/license/delete/${e.target.id}`)
+      fetch(`${baseUrl}/license/${e.target.id}/del`)
     }
   }
 

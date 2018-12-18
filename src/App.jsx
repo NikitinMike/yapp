@@ -19,10 +19,10 @@ function Welcome(props) { return <h1 hidden>Hello, {props.name}!</h1>;}
 class App extends React.Component {
 
   state = {table:[],accountNumber:'',
-    accountSrc:site+'accounts',
-    licenseSrc:site+'licenses',
-    journalSrc:site+'journal',
-    productSrc:site+'products',
+    accountSrc:site+'admin/accounts',
+    licenseSrc:site+'admin/licenses',
+    journalSrc:site+'admin/journal',
+    productSrc:site+'admin/products',
     checkLicenses:false
   } // as is constructor
 
