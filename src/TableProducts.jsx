@@ -51,7 +51,7 @@ class Products extends BaseTable {
     return (
       <form>
         <table rules='all' frame='border'>
-          <caption><button className="flex-itm" onClick={this.newProduct}>{this.props.title}</button></caption>
+          <caption onDoubleClick={this.newProduct}>{this.props.title}</caption>
           <Header head={["[№]","Название","Параметры","Идентификатор"]}/>
           <tbody>
             {this.state.data.map(item => !item.disabled && <Row key={item.entityId} data={item}/>)}
